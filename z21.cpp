@@ -26,6 +26,7 @@ int main() {
 	for (int prime in primes)
 		if (prime >= a)
 			output << prime << ' ';
+	output.close()
 
 }
 
