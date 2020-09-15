@@ -12,5 +12,5 @@ int main() {
 			current_mod += 1;
 		current_mod %= 15;
 	}
-	cout << ((current_mod) ? "NO" : "YES");
+	cout << ((current_mod) ? "NO" : "YES") << '\n';
 }

@@ -9,6 +9,6 @@ int main(){
 		factorial *= multiplier;
 		sum += 1.0/factorial;
 	}
-	std::cout << sum;
+	std::cout << sum << '\n';
 	return 0;
 }
