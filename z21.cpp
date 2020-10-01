@@ -3,11 +3,6 @@
 #include <cmath>
 #include <fstream>
 
-#define not !
-#define False false
-#define True true
-#define in :
-
 using namespace std;
 vector<int> primes_before(double ceil);
 
@@ -23,11 +18,11 @@ int main() {
 	
 	ofstream output;
 	output.open("out.txt");
-	for (int prime in primes)
+	for (int prime : primes)
 		if (prime >= a)
 			output << prime << ' ';
-	output.close()
-
+	output.close();
+	return 0;
 }
 
 
@@ -35,13 +30,13 @@ int main() {
 vector<int> primes_before(double ceil) {
 	vector<int> primes;
 	for (int test_prime = 2; test_prime <= ceil; test_prime += 1) {
-		bool is_not_prime = False;
+		bool is_not_prime = false;
 		for (int prime : primes)
 			if (not (test_prime % prime)) {
-				is_not_prime = True;
+				is_not_prime = true;
 				break;
 			}
-		if (not is_not_prime)
+		if (!is_not_prime)
 			primes.push_back(test_prime);
 	}
 	return primes;
