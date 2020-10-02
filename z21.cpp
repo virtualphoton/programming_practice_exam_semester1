@@ -4,7 +4,7 @@
 #include <fstream>
 
 using namespace std;
-vector<int> primes_before(double ceil);
+vector<int> primes_not_exceeding(double ceil);
 
 int main() {
 	int a, b;
@@ -14,7 +14,7 @@ int main() {
 	input >> a >> b;
 	input.close();
 
-	vector<int> primes = primes_before(b);
+	vector<int> primes = primes_not_exceeding(b);
 	
 	ofstream output;
 	output.open("out.txt");
@@ -27,7 +27,7 @@ int main() {
 
 
 //vector of all prime numbers <= ceil 
-vector<int> primes_before(double ceil) {
+vector<int> primes_not_exceeding(double ceil) {
 	vector<int> primes;
 	for (int test_prime = 2; test_prime <= ceil; test_prime += 1) {
 		bool is_not_prime = false;
