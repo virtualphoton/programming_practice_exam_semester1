@@ -9,7 +9,7 @@
 
 using namespace std;
 
-int sign_recurs(vector<int> numbers, int sum, int depth, int needed_sum, vector<int>& signs);
+int sign_recurs(vector<int> numbers, int sum, int depth, int needed_sum, vector<int> & signs);
 
 
 int main() {
@@ -37,14 +37,14 @@ int main() {
 	return 0;
 }
 
-int sign_recurs(vector<int> numbers, int sum, int depth, int needed_sum, vector<int>& signs) {
+int sign_recurs(vector<int> numbers, int sum, int depth, int needed_sum, vector<int> & signs) {
 
 	if (depth == numbers.size())
 		return 0;
 
 	signs[depth] = 1;
 
-	if (sum + numbers[depth] == needed_sum or
+	if (depth == numbers.size() - 1 and sum + numbers[depth] == needed_sum or
 		sign_recurs(numbers, sum + numbers[depth], depth + 1, needed_sum, signs) == 1)
 		return 1;
 
@@ -52,8 +52,8 @@ int sign_recurs(vector<int> numbers, int sum, int depth, int needed_sum, vector<
 		return 0;
 
 	signs[depth] = -1;
-	if (sum - numbers[depth] == needed_sum or 
-						sign_recurs(numbers, sum - numbers[depth], depth + 1, needed_sum, signs) == 1)
+	if (depth == numbers.size() - 1 and sum - numbers[depth] == needed_sum or
+		sign_recurs(numbers, sum - numbers[depth], depth + 1, needed_sum, signs) == 1)
 		return 1;
 
 	return 0;
